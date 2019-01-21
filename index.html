@@ -1,97 +1,500 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Title-->
+  <title>Example Portfolio</title>
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Sarabun" rel="stylesheet">
+  <style>
+
+      #main {
+        background-color: black;
+        color: white;
+      }
+
+      .navbar {
+        color: white;!important
+      }
+
+      @media only screen and (min-width: 1920px) {
+      #main {
+          no-repeat;
+        height: 1080px;
+      }
+      .nav-item,
+      .navbar-nav {
+        margin: 20px;
+      }
+      #name {
+        font-size: 4.5rem;
+      }
+      #contid {
+        height: 1080px;
+      }
+      }
+
+      @media screen and (min-width: 1366px) and (max-width: 1919px) {
+      #main {
+        height: 768px;
+      }
+      .nav-item,
+      .navbar-nav {
+        margin: 20px;
+      }
+      #name {
+        font-size: 4.5rem;
+      }
+      #contid {
+        height: 768px;
+      }
+      }
+
+      @media screen and (min-width: 1280px) and (max-width: 1365px) {
+      #main {
+          no-repeat;
+        height: 800px;
+      }
+      .nav-item,
+      .navbar-nav {
+        margin: 20px;
+      }
+      #name {
+        font-size: 4.5rem;
+      }
+      #contid {
+        height: 800px;
+      }
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
+      #main {
+          no-repeat;
+        height: 1024px;
+      }
+      #name {
+        font-size: 2.5rem;
+      }
+      }
+
+      @media only screen and (max-width: 767px) {
+      #main {
+          no-repeat;
+        height: 736px;
+      }
+      #name {
+        font-size: 2.5rem;
+        margin-left: 20px !important;
+      }
+      .line-1 {
+        margin-left: 20px !important;
+      }
+      }
+
+      #main {
+      background-size: cover;
+      }
+
+      .navbar-nav {
+      font-size: 1.3rem;
+      }
+
+      #about,
+      #contact {
+      background-color: white;
+      }
+
+      .aboutHeading {
+        font-size: 3rem;
+        padding-top: 120px;
+        padding-bottom: 20px;
+      }
+
+      .aboutPG {
+        font-size: 1rem;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        width: 65%;
+        text-align: justify;
+        margin: auto;
+      }
+
+      /*Text Font */
+
+      #name {
+        margin-left: 65px;
+      }
+
+      /* Global */
+      .line-1 {
+        position: relative;
+        border-right: 2px solid rgba(0, 0, 0, 0.75);
+        font-size: 180%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        transform: translateY(-50%);
+        margin-left: 65px;
+        margin-top: 20px;
+      }
+
+      /* Animation */
+      .anim-typewriter {
+        animation: typewriter 3s steps(48) 1s 1 normal both,
+          blinkTextCursor 500ms steps(48) infinite normal;
+      }
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+        to {
+          width: 7.6em;
+        }
+      }
+      @keyframes blinkTextCursor {
+        from {
+          border-right-color: grey;
+        }
+        to {
+          border-right-color: transparent;
+        }
+      }
+
+
+      form {
+      padding-bottom: 100px;
+      padding-top: 48px;
+      }
+
+      /*Footer*/
+
+      html {
+      position: relative;
+      min-height: 100%;
+      scroll-behavior: smooth;
+      font-family: 'Open Sans', sans-serif;
+      /* font-family: 'Sarabun', sans-serif; */
+      /* font-family: 'Raleway', sans-serif; */
+      }
+      body {
+      margin-bottom: 60px; /* Margin bottom by footer height */
+      font-family: 'Open Sans', sans-serif;
+      /* font-family: 'Sarabun', sans-serif; */
+      /* font-family: 'Raleway', sans-serif; */
+      }
+      .footer {
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 120px; /* Set the fixed height of the footer here */
+      line-height: 60px; /* Vertically center the text there */
+      background-color: #484848;
+      }
+
+      .footer-text {
+      color: white;
+      }
+
+      /*Submit Button*/
+      .btn {
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 15px;
+      position: relative;
+      transition: all 0.15s ease-in-out;
+      }
+      .btn:hover,
+      .btn:focus,
+      .btn:active,
+      .btn:active:focus {
+      outline: none;
+      transition: all 0.15s ease-in-out;
+      }
+      .btn:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.15s ease-in-out;
+      transform: translateY(-1px);
+      }
+      .btn:active {
+      box-shadow: none;
+      transition-duration: 0.05s;
+      transform: translateY(1px);
+      }
+      .btn.btn-default:hover,
+      .btn.btn-default:focus,
+      .btn.btn-default:active {
+      background-color: #f8f8f8;
+      }
+      .btn.btn-default:active {
+      background-color: #eeeeee;
+      }
+      .btn.btn-info {
+      background-color: #3498db;
+      }
+      .btn.btn-info:hover,
+      .btn.btn-info:focus,
+      .btn.btn-info:active {
+      background-color: #2383c4;
+      }
+      .btn.btn-info:active {
+      background-color: #2077b2;
+      }
+      .btn.btn-primary {
+      background-color: #7caae7;
+      }
+      .btn.btn-primary:hover,
+      .btn.btn-primary:focus,
+      .btn.btn-primary:active {
+      background-color: #253544;
+      }
+      .btn.btn-primary:active {
+      background-color: #1e2a37;
+      }
+      .btn.btn-success {
+      background-color: #2ecc71;
+      }
+      .btn.btn-success:hover,
+      .btn.btn-success:focus,
+      .btn.btn-success:active {
+      background-color: #26ab5f;
+      }
+      .btn.btn-success:active {
+      background-color: #239a55;
+      }
+      .btn.btn-warning {
+      background-color: #f39c12;
+      }
+      .btn.btn-warning:hover,
+      .btn.btn-warning:focus,
+      .btn.btn-warning:active {
+      background-color: #d2850b;
+      }
+      .btn.btn-warning:active {
+      background-color: #be780a;
+      }
+      .btn.btn-danger {
+      background-color: #e74c3c;
+      }
+      .btn.btn-danger:hover,
+      .btn.btn-danger:focus,
+      .btn.btn-danger:active {
+      background-color: #df2e1b;
+      }
+      .btn.btn-danger:active {
+      background-color: #cd2a19;
+      }
+
+      /*Project Cards*/
+      .card-custom {
+      overflow: hidden;
+      min-height: 450px;
+      box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+      }
+
+      .card-custom-img {
+      height: 200px;
+      min-height: 200px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-color: inherit;
+      }
+
+      /* First border-left-width setting is a fallback */
+      .card-custom-img::after {
+      position: absolute;
+      content: "";
+      top: 161px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-top-width: 40px;
+      border-right-width: 0;
+      border-bottom-width: 0;
+      border-left-width: 545px;
+      border-left-width: calc(575px - 5vw);
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: inherit;
+      }
+
+      .card-custom-avatar img {
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+      position: absolute;
+      top: 100px;
+      left: 1.25rem;
+      width: 100px;
+      height: 100px;
+      }
+
+      .card-custom-avatar img:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      .img-fluid {
+      background-color: #7ed956;
+      }
+
+      #project1 {
+      background: #21d4fd linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+      }
+
+      #project2 {
+      background: #fad961 linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+      }
+
+      #portfolio {
+      background-image: radial-gradient(
+        circle farthest-corner at 8.6% 21.8%,
+        rgba(231, 0, 0, 1) 0%,
+        rgba(122, 0, 0, 1) 90.1%
+      );
+      }
+
+      .fa {
+        margin-top: 10px;
+        padding: 20px;
+        font-size: 30px;
+        width: 70px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+      }
+
+      .fa:hover {
+          text-decoration: none;
+          color: grey;
+      }
+
+      .fa-facebook {
+        background: black;
+        color: white;
+      }
+
+      .fa-twitter {
+        background: black;
+        color: white;
+      }
+
+      .fa-linkedin {
+        background: black;
+        color: white;
+      }
+
+      .fa-instagram {
+        background: black;
+        color: white;
+      }
+
+      .links {
+        margin: auto;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 5px;
+        margin-top: 30px;
+      }
+
+      @media only screen and (max-width: 489px) {
+        .links {
+          width: 50%;
+        }
+      }
+      @media only screen and (max-width: 361px) {
+        .links {
+          width: 70%;
+        }
+      }
+      @media only screen and (max-width: 267px) {
+        .links {
+          width: 100%;
+        }
+      }
+
+      .icon {
+        padding: 2px;
+      }
+
+      .navbar-wrapper {
+        padding-top: 10px;
+      }
+
+  </style>
 </head>
 
-<style>
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
-.bgimg {
-    background-image: url('aaa.jpg');
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    color: white;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 45px;
-}
-
-.topleft {
-    position: absolute;
-    top: 0;
-    left: 16px;
-}
-
-.bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-}
-
-.middle {
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-hr {
-    margin: auto;
-    width: 40%;
-}
-</style>
 <body>
-
-<div class="bgimg">
-  <div class="topleft">
-
+  <!--Main/First Section-->
+  <div id="main">
+    <header>
+      <div class="navbar-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="matteo_cv.pdf" target="_blank">CV</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    </header>
+    <h1 id="name">Matteo Moschella</h1>
+    <h2 class="line-1 anim-typewriter">Digital journalist</h2>
   </div>
-  <div class="middle">
-    <h1> COMING SOON </h1>
-    <p id="demo" style="font-size:30px"></p>
+  <div id="about">
+    <div class="container" id="contid">
+      <h1 class="text-center aboutHeading">About</h1>
+      <p class="aboutPG">
+        Matteo Moschella is a digital journalist with an interest in social media verification, data and video.
+      </p>
+      <p class="aboutPG">
+        A graduate of City, University of London, Matteo has developed a deep knowledge of social newsgathering and news verification from his time at Storyful, as well as First Draft, where he worked on misinformation and disinformation during the 2017 British general election.
+      </p>
+      <p class="aboutPG">
+        Matteo worked as a social media producer for the Economist in London and completed several editorial internships with The Independent, PA and Manchester Evening News. Those placements allowed Matteo to write extensively and to work on his video production and data skills.
+      </p>
+      <div class="links">
+        <div class="icon">
+          <a href="#" class="fa fa-facebook"></a>
+        </div>
+        <div class="icon">
+          <a href="#" class="fa fa-twitter"></a>
+        </div>
+        <div class="icon">
+          <a href="#" class="fa fa-linkedin"></a>
+        </div>
+        <div class="icon">
+          <a href="#" class="fa fa-instagram"></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="bottomleft">
-    <p>@MatteoMoschella</p>
-  </div>
-</div>
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("March 1, 2018 15:37:25").getTime();
-
-// Update the count down every 1 second
-var countdownfunction = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-
-    // If the count down is over, write some text
-    if (distance < 0) {
-        clearInterval(countdownfunction);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-    }
-}, 1000);
-</script>
-
+  <!--Bootstrap JS-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
+
 </html>
